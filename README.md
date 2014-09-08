@@ -1,4 +1,4 @@
 Gradebook
 =========
 
-Simple grade calculator 
+Simple grade calculator written in jQuery.
