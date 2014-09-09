@@ -1,4 +1,6 @@
 Gradebook
 =========
 
-Simple grade calculator written in jQuery.
+Simple grade calculator, using Shake.js.
+
+## License
