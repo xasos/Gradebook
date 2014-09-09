@@ -1,7 +1,7 @@
 Gradebook
 =========
 
-Simple grade calculator, using Shake.js.
+Simple grade calculator, using [Shake.js](https://github.com/alexgibson/shake.js/).
 
 ## License
 
