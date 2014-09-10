@@ -3,6 +3,7 @@
 <head>
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
+<link rel="icon" href="favicon.ico">
 <script src="shake.js"></script>
 </head>
 <body>
@@ -19,6 +20,7 @@
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 100;
+    color: #ffffff;
   }
   
   body {
@@ -30,17 +32,15 @@
 <script>
   window.addEventListener('shake', shakeEventDidOccur, false);
   
-  //function to call when shake occurs
   function shakeEventDidOccur () {
-  
-      //put your own code here etc.
-      if (confirm("Undo?")) {
-  
-      }
+      alert("Shake detected");
   }
 </script>
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
+<!--
+<input type="text">Quarter 1</input>
+ <hr> -->
 </body>
 <!--
 <footer>
