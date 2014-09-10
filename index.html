@@ -1,6 +1,9 @@
 <!doctype html>
 <html>
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
 <link rel="icon" href="favicon.ico">
@@ -30,14 +33,30 @@
   
 </style>
 <script>
+    var finalGrade
   window.addEventListener('shake', shakeEventDidOccur, false);
   
   function shakeEventDidOccur () {
       alert("Shake detected");
   }
+  
+  function calcFinalGrade() {
+      
+  }
+    
+  function calcSemesterGrade() {
+      
+  }
 </script>
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
+<input type="radio">Find Final Grade</input>
+<input type="radio">Find Semester Grade</input><br>
+<input id="box1" type="text"></input> +
+<input id="box2" type="text"></input> +
+<input id="box3" type="text"></input> +
+<input id="box3" type="text"></input> <br>
+<button>Calculate</button>
 <!--
 <input type="text">Quarter 1</input>
  <hr> -->
