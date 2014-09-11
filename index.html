@@ -42,6 +42,13 @@
     color: #ffffff;
   }
   
+  #hint {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+  }
+  
 </style>
 <script>
   var finalGrade = "";
@@ -80,15 +87,14 @@
   <input id="box2" type="text"></input> +
   <input id="box3" type="text"></input> +
   <input id="box3" type="text"></input> <br>
-  <button class="btn btn-primary btn-active" onClick="calcGrade()">Calculate</button><br><br>
+  <button class="btn btn-primary btn-active" onClick="calcGrade()">Calculate</button>
+  <!--
   <button class="button button-stable button-positive">
     Calculate
   </button>
+  -->
 </div>
-<!--
-<input type="text">Quarter 1</input>
- <hr> -->
- <p><i>Hint: Shake your device to clear the grades!</i>
+<p id="hint"><i>Hint: Shake your device to clear the grades!</i>
 </body>
 <!--
 <footer>
