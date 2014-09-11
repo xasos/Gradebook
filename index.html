@@ -101,8 +101,8 @@
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
-      finalGrade = $('#box3').val();
-      semesterGrade = $('#box4').val();
+      semesterGrade = $('#box3').val();
+      finalGrade = $('#box4').val();
         
         if($('#finGr').attr('checked', true)) {
             console.log("checked");
@@ -116,7 +116,7 @@
     }
     
     function calcFinalGrade() {
-        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
+        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(semesterGrade);
         console.log(calculatedGrade);
         $('#box4').val(calculatedGrade);
     }
