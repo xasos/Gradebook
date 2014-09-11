@@ -40,11 +40,20 @@
   
 </style>
 <script>
-    var finalGrade
+  var finalGrade = "";
+  var grade1 = "";
+  var grade2 = "";
+  
   window.addEventListener('shake', shakeEventDidOccur, false);
   
   function shakeEventDidOccur () {
       alert("Shake detected");
+  }
+  
+  function calcGrade() {
+    grade1 = $('#box1').val();
+    grade2 = $('#box2').val();
+    console.log(grade1);
   }
   
   function calcFinalGrade() {
@@ -67,7 +76,7 @@
   <input id="box2" type="text"></input> +
   <input id="box3" type="text"></input> +
   <input id="box3" type="text"></input> <br>
-  <button class="btn btn-primary btn-active">Calculate</button>
+  <button class="btn btn-primary btn-active" onClick="calcGrade()">Calculate</button>
 </div>
 <!--
 <input type="text">Quarter 1</input>
