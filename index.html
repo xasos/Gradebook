@@ -7,9 +7,12 @@
 <link rel="icon" href="favicon.ico">
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
+<!--
+<link rel="stylesheet" href="http://code.ionicframework.com/1.0.0-beta.12/css/ionic.min.css">
+-->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="shake.js"></script>
+<script src="res/shake.js"></script>
 </head>
 <body>
 <style>
@@ -36,14 +39,53 @@
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
+    color: #000000;
+  }
+  
+  #hint {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+  }
+  
+  .btn-outline {
+    color:#563d7c;
+    background-color:transparent;
+    border-color:#563d7c;
+  }
+  .btn-outline:hover,.btn-outline:focus,.btn-outline:active{
+    color:#fff;
+    background-color:#563d7c;
+    border-color:#fff;
+    
+  }
+  .btn-outline-inverse{
+    color:#fff;
+    background-color:transparent;
+    border-color:#fff;
+  }
+  .btn-outline-inverse:hover,.btn-outline-inverse:focus,.btn-outline-inverse:active{
+    color:#563d7c;text-shadow:none;
+    background-color:#fff;
+    border-color:#fff;
+  }
+  
+  footer {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
     color: #ffffff;
   }
   
 </style>
 <script>
-  var finalGrade = "";
-  var grade1 = "";
-  var grade2 = "";
+  var grade1, grade2, finalGrade, semesterGrade;
   
   window.addEventListener('shake', shakeEventDidOccur, false);
   
@@ -72,20 +114,26 @@
     <input type="radio" name="typeGrade">Find Final Grade</input>
     <input type="radio" name="typeGrade">Find Semester Grade</input><br>
   </form>
+
   <br>
-  <input id="box1" type="text"></input> +
-  <input id="box2" type="text"></input> +
-  <input id="box3" type="text"></input> +
-  <input id="box3" type="text"></input> <br>
-  <button class="btn btn-primary btn-active" onClick="calcGrade()">Calculate</button>
+  <input id="box1" type="text" value="Sem. 1 Grade"></input> +
+  <input id="box2" type="text" value="Sem. 2 Grade"></input> +
+  <input id="box3" type="text" value="Final Grade"></input> +
+  <input id="box3" type="text" value="Your Grade"></input> <br><br>
+  <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+   <div class="input-group col-md-1">
+      <input type="text" class="form-control">
+      <span class="input-group-addon">%</span>
+    </div>
+  <!--
+  <button class="button button-stable button-positive">
+    Calculate
+  </button>
+  -->
 </div>
-<!--
-<input type="text">Quarter 1</input>
- <hr> -->
+<p id="hint"><i>Hint: Shake your device to clear your grades!</i>
 </body>
-<!--
 <footer>
         <h4>socoolproject</h4>
 </footer>
--->
 </html>
