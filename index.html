@@ -36,7 +36,7 @@
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: #000000;
+    color: #ffffff;
   }
   
   #hint {
@@ -80,11 +80,8 @@
     color: #ffffff;
   }
   
-  radioButtons {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
+  .fields {
+    
   }
   
 </style>
@@ -145,16 +142,18 @@
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
-  <form class="radioButtons">
+  <form>
     <input type="radio" name="finGr">Find Final Grade</input>
     <input type="radio" name="semGr">Find Semester Grade</input><br>
   </form>
 
   <br>
-  <input id="box1" type="text" placeholder="Q1 Grade"></input> +
-  <input id="box2" type="text" placeholder="Q2 Grade"></input> +
-  <input id="box3" type="text" placeholder="Final Grade"></input> +
-  <input id="box4" type="text" placeholder="Your Grade"></input> <br><br>
+  <div class="fields">
+    <input id="box1" type="text" placeholder="Q1 Grade"></input> +
+    <input id="box2" type="text" placeholder="Q2 Grade"></input> +
+    <input id="box3" type="text" placeholder="Final Grade"></input> +
+    <input id="box4" type="text" placeholder="Your Grade"></input> <br><br>
+  </div>
   <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
 <!--
    <div class="input-group col-md-1">
