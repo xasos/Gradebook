@@ -85,47 +85,68 @@
   
 </style>
 <script>
-  var grade1, grade2, finalGrade, semesterGrade;
+  var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
   
   window.addEventListener('shake', shakeEventDidOccur, false);
   
   function shakeEventDidOccur () {
-      alert("Shake detected");
+     reset();
   }
   
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
-      console.log(grade1);
+      finalGrade = $('#box3').val();
+      semesterGrade = $('#box4').val();
+        
+        if($('#finGr').attr('checked', true)) {
+            console.log("checked");
+            calcFinalGrade();
+        }
+        
+        else {
+            calcSemesterGrade();
+        }
+        
     }
     
     function calcFinalGrade() {
-        
+        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
+        console.log(calculatedGrade);
+        $('#box4').val(calculatedGrade);
     }
       
     function calcSemesterGrade() {
         
+    }
+    
+    function reset() {
+      grade1 = 0;
+      grade2 = 0;
+      finalGrade = 0;
+      semesterGrade = 0;
+      calculatedGrade = 0;
     }
 </script>
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
   <form>
-    <input type="radio" name="typeGrade">Find Final Grade</input>
-    <input type="radio" name="typeGrade">Find Semester Grade</input><br>
+    <input type="radio" name="finGr">Find Final Grade</input>
+    <input type="radio" name="semGr">Find Semester Grade</input><br>
   </form>
 
   <br>
-  <input id="box1" type="text" value="Sem. 1 Grade"></input> +
-  <input id="box2" type="text" value="Sem. 2 Grade"></input> +
-  <input id="box3" type="text" value="Final Grade"></input> +
-  <input id="box3" type="text" value="Your Grade"></input> <br><br>
+  <input id="box1" type="text" placeholder="Sem. 1 Grade"></input> +
+  <input id="box2" type="text" placeholder="Sem. 2 Grade"></input> +
+  <input id="box3" type="text" placeholder="Final Grade"></input> +
+  <input id="box4" type="text" placeholder="Your Grade"></input> <br><br>
   <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+<!--
    <div class="input-group col-md-1">
       <input type="text" class="form-control">
       <span class="input-group-addon">%</span>
     </div>
-  <!--
   <button class="button button-stable button-positive">
     Calculate
   </button>
