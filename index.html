@@ -84,6 +84,7 @@
 <script>
   var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
   
+  // This will listen for when the device shakes and call the clear function
   window.addEventListener('shake', shakeEventDidOccur, false);
   
   function shakeEventDidOccur () {
@@ -106,10 +107,13 @@
             calcFinalGrade();
         }
         
-        else {
+        else if($('#semGr').attr('checked', true)){
             calcSemesterGrade();
         }
         
+        else{
+          alert("Please select the type of grade you want to check.")
+        }
     }
     
     function calcFinalGrade() {
@@ -130,6 +134,7 @@
       calculatedGrade = 0;
     }
 </script>
+<!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
@@ -154,7 +159,7 @@
   </button>
   -->
 </div>
-<p id="hint"><i>Hint: Shake your device to clear your grades!</i>
+<p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
 </body>
 <footer>
         <h4>socoolproject</h4>
