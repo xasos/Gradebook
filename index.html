@@ -1,9 +1,14 @@
 <!doctype html>
 <html>
 <head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<link rel="icon" href="favicon.ico">
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
-<link rel="icon" href="favicon.ico">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="shake.js"></script>
 </head>
 <body>
@@ -27,17 +32,53 @@
     background-color: #2c3e50;
   }
   
+  .gradeCalc {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #ffffff;
+  }
   
 </style>
 <script>
+  var finalGrade = "";
+  var grade1 = "";
+  var grade2 = "";
+  
   window.addEventListener('shake', shakeEventDidOccur, false);
   
   function shakeEventDidOccur () {
       alert("Shake detected");
   }
+  
+    function calcGrade() {
+      grade1 = $('#box1').val();
+      grade2 = $('#box2').val();
+      console.log(grade1);
+    }
+    
+    function calcFinalGrade() {
+        
+    }
+      
+    function calcSemesterGrade() {
+        
+    }
 </script>
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
+<div class="gradeCalc">
+  <form>
+    <input type="radio" name="typeGrade">Find Final Grade</input>
+    <input type="radio" name="typeGrade">Find Semester Grade</input><br>
+  </form>
+  <br>
+  <input id="box1" type="text"></input> +
+  <input id="box2" type="text"></input> +
+  <input id="box3" type="text"></input> +
+  <input id="box3" type="text"></input> <br>
+  <button class="btn btn-primary btn-active" onClick="calcGrade()">Calculate</button>
+</div>
 <!--
 <input type="text">Quarter 1</input>
  <hr> -->
