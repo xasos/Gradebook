@@ -110,12 +110,12 @@
       finalGrade = $('#box3').val();
       semesterGrade = $('#box4').val();
         
-        if($('#finGr').attr('checked', true)) {
+        if(document.getElementById('finGr').checked) {
             calcFinalGrade();
             console.log("first");
         }
                 
-        else if($('#semGr').attr('checked', true)) {
+        else if(document.getElementById('semGr').checked) {
             calcSemesterGrade();
             console.log("second");
         }
