@@ -1,50 +1,50 @@
-  h1 {
+h1 {
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     margin: 0px 0px -30px 0px;
     color: #ffffff;
-  }
+}
   
-  h2 {
+h2 {
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 100;
     color: #ffffff;
-  }
+}
   
-  body {
+body {
     background-color: #2c3e50;
-  }
+}
   
-  .gradeCalc {
+.gradeCalc {
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #ffffff;
-  }
+}
   
-  #hint {
+#hint {
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #ffffff;
-  }
+}
 
-  .btn-outline-inverse {
+.btn-outline-inverse {
     color:#fff;
     background-color:transparent;
     border-color:#fff;
-  }
+}
   
-  .btn-outline-inverse:hover,.btn-outline-inverse:focus,.btn-outline-inverse:active {
+.btn-outline-inverse:hover,.btn-outline-inverse:focus,.btn-outline-inverse:active {
     color:#563d7c;
     text-shadow:none;
     background-color:#fff;
     border-color:#fff;
-  }
+}
   
-  footer {
+footer {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -54,11 +54,18 @@
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #ffffff;
-  }
+}
   
-  .fields {
+.fields {
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
     color: #000000;
-  }
+}
+
+#signs {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  margin: 0px 0px -30px 0px;
+  color: #ffffff;
+}
