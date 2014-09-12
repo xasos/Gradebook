@@ -7,9 +7,6 @@
 <link rel="icon" href="favicon.ico">
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
-<!--
-<link rel="stylesheet" href="http://code.ionicframework.com/1.0.0-beta.12/css/ionic.min.css">
--->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
 <script src="res/shake.js"></script>
@@ -39,7 +36,7 @@
     text-align: center;
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    color: #000000;
+    color: #ffffff;
   }
   
   #hint {
@@ -83,55 +80,95 @@
     color: #ffffff;
   }
   
+  .fields {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #000000;
+  }
+  
 </style>
 <script>
-  var grade1, grade2, finalGrade, semesterGrade;
+  var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
   
+  // This will listen for when the device shakes and call the clear function
   window.addEventListener('shake', shakeEventDidOccur, false);
   
   function shakeEventDidOccur () {
-      alert("Shake detected");
+    alert("shake detected.")
+    $('#box1').val("");
+    $('#box2').val("");
+    $('#box3').val("");
+    $('#box4').val("");
+    reset();
   }
   
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
-      console.log(grade1);
+      semesterGrade = $('#box3').val();
+      finalGrade = $('#box4').val();
+        
+        if($('#finGr').attr('checked', true)) {
+            console.log("checked");
+            calcFinalGrade();
+        }
+        
+        else if($('#semGr').attr('checked', true)){
+            calcSemesterGrade();
+        }
+        
+        else{
+          alert("Please select the type of grade you want to check.")
+        }
     }
     
     function calcFinalGrade() {
-        
+        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(semesterGrade);
+        console.log(calculatedGrade);
+        $('#box4').val(calculatedGrade);
     }
       
     function calcSemesterGrade() {
         
     }
+    
+    function reset() {
+      grade1 = 0;
+      grade2 = 0;
+      finalGrade = 0;
+      semesterGrade = 0;
+      calculatedGrade = 0;
+    }
 </script>
+<!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap -->
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
   <form>
-    <input type="radio" name="typeGrade">Find Final Grade</input>
-    <input type="radio" name="typeGrade">Find Semester Grade</input><br>
+    <input type="radio" name="finGr">Find Final Grade</input>
+    <input type="radio" name="semGr">Find Semester Grade</input><br>
   </form>
 
   <br>
-  <input id="box1" type="text" value="Sem. 1 Grade"></input> +
-  <input id="box2" type="text" value="Sem. 2 Grade"></input> +
-  <input id="box3" type="text" value="Final Grade"></input> +
-  <input id="box3" type="text" value="Your Grade"></input> <br><br>
+  <div class="fields">
+    <input id="box1" type="text" placeholder="Q1 Grade"></input> +
+    <input id="box2" type="text" placeholder="Q2 Grade"></input> +
+    <input id="box3" type="text" placeholder="Final Grade"></input> +
+    <input id="box4" type="text" placeholder="Your Grade"></input> <br><br>
+  </div>
   <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+<!--
    <div class="input-group col-md-1">
       <input type="text" class="form-control">
       <span class="input-group-addon">%</span>
     </div>
-  <!--
   <button class="button button-stable button-positive">
     Calculate
   </button>
   -->
 </div>
-<p id="hint"><i>Hint: Shake your device to clear your grades!</i>
+<p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
 </body>
 <footer>
         <h4>socoolproject</h4>
