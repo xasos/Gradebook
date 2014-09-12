@@ -29,7 +29,9 @@
       $('#box4').val("");
       reset();
     }
-    
+      //hide clear button until grade is calculated
+      $("clearButton").hide();
+      
       function calcGrade() {
         grade1 = $('#box1').val();
         grade2 = $('#box2').val();
@@ -61,11 +63,13 @@
       function calcSemesterGrade() {
           calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
           $('#box4').val(calculatedGrade);
+          $("clearButton").show();
       }
         
       function calcFinalGrade() {
           calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
           $('#box3').val(calculatedGrade);
+          $("clearButton").show();
       }
       
       //reset all variables when user clears
@@ -75,6 +79,7 @@
         finalGrade = 0;
         semesterGrade = 0;
         calculatedGrade = 0;
+        $("clearButton").hide();
       }
   </script>
   <!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
@@ -94,7 +99,7 @@
       <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
     </div>
     <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
-    <button class="btn btn-outline-inverse btn-lg" onClick="clear()">Clear</button>
+    <button class="btn btn-outline-inverse btn-lg" onClick="clear()" id="clearButton">Clear</button>
   <!--
      <div class="input-group col-md-1">
         <input type="text" class="form-control">
