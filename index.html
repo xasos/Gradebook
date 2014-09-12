@@ -109,16 +109,17 @@
       grade2 = $('#box2').val();
       finalGrade = $('#box3').val();
       semesterGrade = $('#box4').val();
+      
         if($("#finGr").is(':checked')) {
             console.log("yo");  
         }
         
-        if($('#finGr').attr('checked', true)) {
+        if($("#finGr").is(':checked')) {
             calcFinalGrade();
             console.log("first");
         }
                 
-        else if($('#semGr').attr('checked', true)) {
+        else if($("#semGr").is(':checked')) {
             calcSemesterGrade();
             console.log("second");
         }
