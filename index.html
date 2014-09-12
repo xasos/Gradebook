@@ -29,23 +29,24 @@
       $('#box4').val("");
       reset();
     }
-      //hide clear button until grade is calculated
-      $("clearButton").hide();
+    
+    //hide clear button until grade is calculated
+    $("clearButton").hide();
       
-      function calcGrade() {
-        grade1 = $('#box1').val();
-        grade2 = $('#box2').val();
-        finalGrade = $('#box3').val();
-        semesterGrade = $('#box4').val();
+    function calcGrade() {
+      grade1 = $('#box1').val();
+      grade2 = $('#box2').val();
+      finalGrade = $('#box3').val();
+      semesterGrade = $('#box4').val();
         
-          if($("#finGr").is(':checked')) {
+      if($("#finGr").is(':checked')) {
             
-            if($('box1').val() !== null && $('box2').val() !== null && $('box4').val() !== null) {
+        if($('box1').val() !== null && $('box2').val() !== null && $('box4').val() !== null) {
               
-            }
-              calcFinalGrade();
-              console.log("first");
-          }
+        }
+          calcFinalGrade();
+          console.log("first");
+      }
                   
           else if($("#semGr").is(':checked')) {
             if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
