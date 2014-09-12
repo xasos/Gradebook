@@ -92,8 +92,7 @@
   var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
   
   // This will listen for when the device shakes and call the clear function
-  window.addEventListener('shake', shakeEventDidOccur, false);
-  
+  window.addEventListener('shake', shakeEventDidOccur, false);  
   function shakeEventDidOccur () {
     alert("shake detected.");
     $('#box1').val("");
@@ -106,31 +105,37 @@
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
-      semesterGrade = $('#box3').val();
-      finalGrade = $('#box4').val();
+      finalGrade = $('#box3').val();
+      semesterGrade = $('#box4').val();
         
         if($('#finGr').attr('checked', true)) {
-            console.log("checked");
             calcFinalGrade();
+            console.log("first");
         }
-        
+                
         else if($('#semGr').attr('checked', true)){
             calcSemesterGrade();
+            console.log("second");
         }
         
-        else{
+        else {
           alert("Please select the type of grade you want to check.");
         }
     }
     
-    function calcFinalGrade() {
-        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(semesterGrade);
+    function calcSemesterGrade() {
+        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
         console.log(calculatedGrade);
         $('#box4').val(calculatedGrade);
     }
       
-    function calcSemesterGrade() {
-        
+    function calcFinalGrade() {
+        console.log(semesterGrade);
+        console.log(grade1);
+        console.log(grade2);
+        calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
+        console.log(calculatedGrade);
+        $('#box3').val(calculatedGrade);
     }
     
     function reset() {
