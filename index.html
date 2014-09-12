@@ -14,89 +14,12 @@
 <script src="res/app.js"></script>
 </head>
 <body>
-<style>
-  h1 {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    margin: 0px 0px -30px 0px;
-    color: #ffffff;
-  }
-  
-  h2 {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 100;
-    color: #ffffff;
-  }
-  
-  body {
-    background-color: #2c3e50;
-  }
-  
-  .gradeCalc {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-  }
-  
-  #hint {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-  }
-  
-  .btn-outline {
-    color:#563d7c;
-    background-color:transparent;
-    border-color:#563d7c;
-  }
-  .btn-outline:hover,.btn-outline:focus,.btn-outline:active{
-    color:#fff;
-    background-color:#563d7c;
-    border-color:#fff;
-    
-  }
-  .btn-outline-inverse{
-    color:#fff;
-    background-color:transparent;
-    border-color:#fff;
-  }
-  .btn-outline-inverse:hover,.btn-outline-inverse:focus,.btn-outline-inverse:active{
-    color:#563d7c;text-shadow:none;
-    background-color:#fff;
-    border-color:#fff;
-  }
-  
-  footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-  }
-  
-  .fields {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #000000;
-  }
-  
-</style>
 <script>
   var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
   
   // This will listen for when the device shakes and call the clear function
   window.addEventListener('shake', shakeEventDidOccur, false);  
   function shakeEventDidOccur () {
-    alert("shake detected.");
     $('#box1').val("");
     $('#box2').val("");
     $('#box3').val("");
@@ -157,7 +80,7 @@
     <input id="box1" type="text" placeholder="Q1 Grade"></input> +
     <input id="box2" type="text" placeholder="Q2 Grade"></input> +
     <input id="box3" type="text" placeholder="Final Grade"></input> +
-    <input id="box4" type="text" placeholder="Your Grade"></input> <br><br>
+    <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
   </div>
   <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
 <!--
