@@ -8,8 +8,10 @@
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet" href="res/app.css">
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="res/shake.js"></script>
+<script src="res/app.js"></script>
 </head>
 <body>
 <style>
@@ -92,10 +94,9 @@
   var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
   
   // This will listen for when the device shakes and call the clear function
-  window.addEventListener('shake', shakeEventDidOccur, false);
-  
+  window.addEventListener('shake', shakeEventDidOccur, false);  
   function shakeEventDidOccur () {
-    alert("shake detected.")
+    alert("shake detected.");
     $('#box1').val("");
     $('#box2').val("");
     $('#box3').val("");
@@ -106,31 +107,32 @@
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
-      semesterGrade = $('#box3').val();
-      finalGrade = $('#box4').val();
-        
-        if($('#finGr').attr('checked', true)) {
-            console.log("checked");
+      finalGrade = $('#box3').val();
+      semesterGrade = $('#box4').val();
+      
+        if($("#finGr").is(':checked')) {
             calcFinalGrade();
+            console.log("first");
         }
-        
-        else if($('#semGr').attr('checked', true)){
+                
+        else if($("#semGr").is(':checked')) {
             calcSemesterGrade();
+            console.log("second");
         }
         
-        else{
-          alert("Please select the type of grade you want to check.")
+        else {
+          alert("Please select the type of grade you want to check.");
         }
     }
     
-    function calcFinalGrade() {
-        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(semesterGrade);
-        console.log(calculatedGrade);
+    function calcSemesterGrade() {
+        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
         $('#box4').val(calculatedGrade);
     }
       
-    function calcSemesterGrade() {
-        
+    function calcFinalGrade() {
+        calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
+        $('#box3').val(calculatedGrade);
     }
     
     function reset() {
@@ -146,8 +148,8 @@
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
   <form>
-    <input type="radio" name="finGr">Find Final Grade</input>
-    <input type="radio" name="semGr">Find Semester Grade</input><br>
+    <input type="radio" name="grade" id="finGr">Find Final Grade</input>
+    <input type="radio" name="grade" id="semGr">Find Semester Grade</input><br>
   </form>
 
   <br>
