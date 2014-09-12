@@ -1,109 +1,113 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="icon" href="favicon.ico">
-<title>Gradebook</title>
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="res/app.css">
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="res/shake.js"></script>
-<script src="res/app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <link rel="icon" href="favicon.ico">
+  <title>Gradebook</title>
+  
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="res/app.css">
+  
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="res/shake.js"></script>
+  <script src="res/app.js"></script>
 </head>
-<body>
-<script>
-  var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
-  
-  // This will listen for when the device shakes and call the clear function
-  window.addEventListener('shake', shakeEventDidOccur, false);  
-  function shakeEventDidOccur () {
-    $('#box1').val("");
-    $('#box2').val("");
-    $('#box3').val("");
-    $('#box4').val("");
-    reset();
-  }
-  
-    function calcGrade() {
-      grade1 = $('#box1').val();
-      grade2 = $('#box2').val();
-      finalGrade = $('#box3').val();
-      semesterGrade = $('#box4').val();
-      
-        if($("#finGr").is(':checked')) {
-          
-          if($('box1').val() !== null && ($('box2').val() !== null && ($('box4').val() !== null) {
-            
-          }
-            calcFinalGrade();
-            console.log("first");
-        }
-                
-        else if($("#semGr").is(':checked')) {
-          if($('box1').val() !== null && ($('box2').val() !== null && ($('box3').val() !== null) {
-            
-          }
-            calcSemesterGrade();
-            console.log("second");
-        }
-        
-        else {
-          alert("Please select the type of grade you want to check.");
-        }
-    }
-    
-    function calcSemesterGrade() {
-        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
-        $('#box4').val(calculatedGrade);
-    }
-      
-    function calcFinalGrade() {
-        calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
-        $('#box3').val(calculatedGrade);
-    }
-    
-    //reset all variables when user clears
-    function reset() {
-      grade1 = 0;
-      grade2 = 0;
-      finalGrade = 0;
-      semesterGrade = 0;
-      calculatedGrade = 0;
-    }
-</script>
-<!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
-<h1><strong>Grade</strong>book</h1>
-<h2>An <i>easy</i> way to check your grades.</h2>
-<div class="gradeCalc">
-  <form>
-    <input type="radio" name="grade" id="finGr">Find Final Grade</input>
-    <input type="radio" name="grade" id="semGr">Find Semester Grade</input><br>
-  </form>
 
-  <br>
-  <div class="fields">
-    <input id="box1" type="text" placeholder="Q1 Grade"></input> +
-    <input id="box2" type="text" placeholder="Q2 Grade"></input> +
-    <input id="box3" type="text" placeholder="Final Grade"></input> +
-    <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
-  </div>
-  <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
-  <button class="btn btn-outline-inverse btn-lg" onClick="clear()">Clear</button>
-<!--
-   <div class="input-group col-md-1">
-      <input type="text" class="form-control">
-      <span class="input-group-addon">%</span>
+<body>
+  <script>
+    var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
+    
+    // This will listen for when the device shakes and call the clear function
+    window.addEventListener('shake', shakeEventDidOccur, false);  
+    function shakeEventDidOccur () {
+      $('#box1').val("");
+      $('#box2').val("");
+      $('#box3').val("");
+      $('#box4').val("");
+      reset();
+    }
+    
+      function calcGrade() {
+        grade1 = $('#box1').val();
+        grade2 = $('#box2').val();
+        finalGrade = $('#box3').val();
+        semesterGrade = $('#box4').val();
+        
+          if($("#finGr").is(':checked')) {
+            
+            if($('box1').val() !== null && ($('box2').val() !== null && ($('box4').val() !== null) {
+              
+            }
+              calcFinalGrade();
+              console.log("first");
+          }
+                  
+          else if($("#semGr").is(':checked')) {
+            if($('box1').val() !== null && ($('box2').val() !== null && ($('box3').val() !== null) {
+              
+            }
+              calcSemesterGrade();
+              console.log("second");
+          }
+          
+          else {
+            alert("Please select the type of grade you want to check.");
+          }
+      }
+      
+      function calcSemesterGrade() {
+          calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
+          $('#box4').val(calculatedGrade);
+      }
+        
+      function calcFinalGrade() {
+          calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
+          $('#box3').val(calculatedGrade);
+      }
+      
+      //reset all variables when user clears
+      function reset() {
+        grade1 = 0;
+        grade2 = 0;
+        finalGrade = 0;
+        semesterGrade = 0;
+        calculatedGrade = 0;
+      }
+  </script>
+  <!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
+  <h1><strong>Grade</strong>book</h1>
+  <h2>An <i>easy</i> way to check your grades.</h2>
+  <div class="gradeCalc">
+    <form>
+      <input type="radio" name="grade" id="finGr">Find Final Grade</input>
+      <input type="radio" name="grade" id="semGr">Find Semester Grade</input><br>
+    </form>
+  
+    <br>
+    <div class="fields">
+      <input id="box1" type="text" placeholder="Q1 Grade"></input> +
+      <input id="box2" type="text" placeholder="Q2 Grade"></input> +
+      <input id="box3" type="text" placeholder="Final Grade"></input> +
+      <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
     </div>
-  <button class="button button-stable button-positive">
-    Calculate
-  </button>
-  -->
-</div>
-<p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
+    <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+    <button class="btn btn-outline-inverse btn-lg" onClick="clear()">Clear</button>
+  <!--
+     <div class="input-group col-md-1">
+        <input type="text" class="form-control">
+        <span class="input-group-addon">%</span>
+      </div>
+    <button class="button button-stable button-positive">
+      Calculate
+    </button>
+    -->
+  </div>
+  <p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
 </body>
+
 <footer>
         <h4>socoolproject</h4>
 </footer>
