@@ -34,11 +34,18 @@
       semesterGrade = $('#box4').val();
       
         if($("#finGr").is(':checked')) {
+          
+          if($('box1').val() !== null && ($('box2').val() !== null && ($('box4').val() !== null) {
+            
+          }
             calcFinalGrade();
             console.log("first");
         }
                 
         else if($("#semGr").is(':checked')) {
+          if($('box1').val() !== null && ($('box2').val() !== null && ($('box3').val() !== null) {
+            
+          }
             calcSemesterGrade();
             console.log("second");
         }
@@ -58,6 +65,7 @@
         $('#box3').val(calculatedGrade);
     }
     
+    //reset all variables when user clears
     function reset() {
       grade1 = 0;
       grade2 = 0;
@@ -66,7 +74,7 @@
       calculatedGrade = 0;
     }
 </script>
-<!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap -->
+<!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
 <h1><strong>Grade</strong>book</h1>
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
@@ -83,6 +91,7 @@
     <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
   </div>
   <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+  <button class="btn btn-outline-inverse btn-lg" onClick="clear()">Clear</button>
 <!--
    <div class="input-group col-md-1">
       <input type="text" class="form-control">
