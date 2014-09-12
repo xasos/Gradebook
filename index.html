@@ -48,18 +48,18 @@
           console.log("first");
       }
                   
-          else if($("#semGr").is(':checked')) {
-            if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
+      else if($("#semGr").is(':checked')) {
+        if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
               
-            }
-              calcSemesterGrade();
-              console.log("second");
-          }
-          
-          else {
-            alert("Please select the type of grade you want to check.");
-          }
+        }
+        calcSemesterGrade();
+        console.log("second");
       }
+          
+      else {
+        alert("Please select the type of grade you want to check.");
+      }
+    }
       
       function calcSemesterGrade() {
           calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
@@ -100,7 +100,9 @@
       <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
     </div>
     <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+    <!--
     <button class="btn btn-outline-inverse btn-lg" onClick="clear()" id="clearButton">Clear</button>
+    -->
   <!--
      <div class="input-group col-md-1">
         <input type="text" class="form-control">
