@@ -127,16 +127,11 @@
     
     function calcSemesterGrade() {
         calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
-        console.log(calculatedGrade);
         $('#box4').val(calculatedGrade);
     }
       
     function calcFinalGrade() {
-        console.log(semesterGrade);
-        console.log(grade1);
-        console.log(grade2);
         calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
-        console.log(calculatedGrade);
         $('#box3').val(calculatedGrade);
     }
     
