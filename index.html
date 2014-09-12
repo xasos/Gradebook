@@ -110,12 +110,12 @@
       finalGrade = $('#box3').val();
       semesterGrade = $('#box4').val();
         
-        if(document.getElementById('finGr').checked) {
+        if($('#finGr').attr('checked', true)) {
             calcFinalGrade();
             console.log("first");
         }
                 
-        else if(document.getElementById('semGr').checked) {
+        else if($('#semGr').attr('checked', true)) {
             calcSemesterGrade();
             console.log("second");
         }
@@ -153,8 +153,8 @@
 <h2>An <i>easy</i> way to check your grades.</h2>
 <div class="gradeCalc">
   <form>
-    <input type="radio" name="grade" class="finGr">Find Final Grade</input>
-    <input type="radio" name="grade" class="semGr">Find Semester Grade</input><br>
+    <input type="radio" name="grade" id="finGr">Find Final Grade</input>
+    <input type="radio" name="grade" id="semGr">Find Semester Grade</input><br>
   </form>
 
   <br>
