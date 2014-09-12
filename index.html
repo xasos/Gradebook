@@ -8,7 +8,7 @@
 <title>Gradebook</title>
 <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 <script src="res/shake.js"></script>
 </head>
 <body>
@@ -108,12 +108,12 @@
       finalGrade = $('#box3').val();
       semesterGrade = $('#box4').val();
         
-        if($('#finGr').attr('checked', true)) {
-            calcSemesterGrade();
+        if($('#finGr').attr('checked', 'checked')) {
+            calcFinalGrade();
             console.log("first");
         }
                 
-        else if($('#semGr').attr('checked', true)){
+        else if($('#semGr').attr('checked', 'checked')){
             calcSemesterGrade();
             console.log("second");
         }
