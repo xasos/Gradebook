@@ -1,177 +1,138 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<link rel="icon" href="favicon.ico">
-<title>Gradebook</title>
-<link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="res/app.css">
-<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-<script src="res/shake.js"></script>
-<script src="res/app.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="mobile-web-app-capable" content="yes">
+  <title>Gradebook</title>
+
+  <!-- Import favicons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="res/img/apple-touch-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="res/img/apple-touch-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="res/img/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="res/img/apple-touch-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="res/img/apple-touch-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="res/img/apple-touch-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="res/img/apple-touch-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="res/img/apple-touch-icon-152x152.png">
+  <link rel="icon" type="image/png" href="res/img/favicon-196x196.png" sizes="196x196">
+  <link rel="icon" type="image/png" href="res/img/favicon-160x160.png" sizes="160x160">
+  <link rel="icon" type="image/png" href="res/img/favicon-96x96.png" sizes="96x96">
+  <link rel="icon" type="image/png" href="res/img/favicon-16x16.png" sizes="16x16">
+  <link rel="icon" type="image/png" href="res/img/favicon-32x32.png" sizes="32x32">
+
+  <!-- Import styles -->
+  <link href='http://fonts.googleapis.com/css?family=Lato:100,300,300italic' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="res/app.css">
+  
+  <!-- Import js -->
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="res/shake.js"></script>
+  <script src="res/app.js"></script>
 </head>
 <body>
-<style>
-  h1 {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    margin: 0px 0px -30px 0px;
-    color: #ffffff;
-  }
-  
-  h2 {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 100;
-    color: #ffffff;
-  }
-  
-  body {
-    background-color: #2c3e50;
-  }
-  
-  .gradeCalc {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-  }
-  
-  #hint {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-  }
-  
-  .btn-outline {
-    color:#563d7c;
-    background-color:transparent;
-    border-color:#563d7c;
-  }
-  .btn-outline:hover,.btn-outline:focus,.btn-outline:active{
-    color:#fff;
-    background-color:#563d7c;
-    border-color:#fff;
+  <!-- move to app.js in production -->
+  <script>
+    var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
     
-  }
-  .btn-outline-inverse{
-    color:#fff;
-    background-color:transparent;
-    border-color:#fff;
-  }
-  .btn-outline-inverse:hover,.btn-outline-inverse:focus,.btn-outline-inverse:active{
-    color:#563d7c;text-shadow:none;
-    background-color:#fff;
-    border-color:#fff;
-  }
-  
-  footer {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    height: 50px;
-    width: 100%;
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #ffffff;
-  }
-  
-  .fields {
-    text-align: center;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    color: #000000;
-  }
-  
-</style>
-<script>
-  var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
-  
-  // This will listen for when the device shakes and call the clear function
-  window.addEventListener('shake', shakeEventDidOccur, false);  
-  function shakeEventDidOccur () {
-    alert("shake detected.");
-    $('#box1').val("");
-    $('#box2').val("");
-    $('#box3').val("");
-    $('#box4').val("");
-    reset();
-  }
-  
+    // This will listen for a device shake and call the clear function
+    window.addEventListener('shake', shakeEventDidOccur, false);  
+    function shakeEventDidOccur () {
+      $('#box1').val("");
+      $('#box2').val("");
+      $('#box3').val("");
+      $('#box4').val("");
+      reset();
+    }
+    
+    //hide clear button until grade is calculated
+    $("#clearButton").hide();
+      
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
       finalGrade = $('#box3').val();
       semesterGrade = $('#box4').val();
-      
-        if($("#finGr").is(':checked')) {
-            calcFinalGrade();
-            console.log("first");
-        }
-                
-        else if($("#semGr").is(':checked')) {
-            calcSemesterGrade();
-            console.log("second");
-        }
         
-        else {
-          alert("Please select the type of grade you want to check.");
+      if($("#finGr").is(':checked')) {
+            
+        if($('box1').val() !== null && $('box2').val() !== null && $('box4').val() !== null) {
+              
         }
-    }
-    
-    function calcSemesterGrade() {
-        calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
-        $('#box4').val(calculatedGrade);
+          calcFinalGrade();
+          console.log("first");
+      }
+                  
+      else if($("#semGr").is(':checked')) {
+        if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
+              
+        }
+        calcSemesterGrade();
+        console.log("second");
+      }
+          
+      else {
+        alert("Please select the type of grade you want to check.");
+      }
     }
       
-    function calcFinalGrade() {
-        calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
-        $('#box3').val(calculatedGrade);
-    }
-    
-    function reset() {
-      grade1 = 0;
-      grade2 = 0;
-      finalGrade = 0;
-      semesterGrade = 0;
-      calculatedGrade = 0;
-    }
-</script>
-<!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap -->
-<h1><strong>Grade</strong>book</h1>
-<h2>An <i>easy</i> way to check your grades.</h2>
-<div class="gradeCalc">
-  <form>
-    <input type="radio" name="grade" id="finGr">Find Final Grade</input>
-    <input type="radio" name="grade" id="semGr">Find Semester Grade</input><br>
-  </form>
-
-  <br>
-  <div class="fields">
-    <input id="box1" type="text" placeholder="Q1 Grade"></input> +
-    <input id="box2" type="text" placeholder="Q2 Grade"></input> +
-    <input id="box3" type="text" placeholder="Final Grade"></input> +
-    <input id="box4" type="text" placeholder="Your Grade"></input> <br><br>
-  </div>
-  <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
-<!--
-   <div class="input-group col-md-1">
-      <input type="text" class="form-control">
-      <span class="input-group-addon">%</span>
+      function calcSemesterGrade() {
+          calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
+          $('#box4').val(calculatedGrade);
+          $("clearButton").show();
+      }
+        
+      function calcFinalGrade() {
+          calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
+          $('#box3').val(calculatedGrade);
+          $("clearButton").show();
+      }
+      
+      //reset all variables when user clears
+      function reset() {
+        grade1 = 0;
+        grade2 = 0;
+        finalGrade = 0;
+        semesterGrade = 0;
+        calculatedGrade = 0;
+        $("clearButton").hide();
+      }
+  </script>
+  <!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
+  <h1><strong>Grade</strong>book</h1>
+  <h2>An <i>easy</i> way to calculate your grades.</h2>
+  <div class="gradeCalc">
+    <form>
+      <input type="radio" name="grade" id="finGr">Find Final Grade</input>
+      <input type="radio" name="grade" id="semGr">Find Semester Grade</input><br>
+    </form>
+  
+    <br>
+    <div class="fields">
+      <input id="box1" type="text" placeholder="Q1 Grade"></input> +
+      <input id="box2" type="text" placeholder="Q2 Grade"></input> +
+      <input id="box3" type="text" placeholder="Final Grade"></input> =
+      <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
     </div>
-  <button class="button button-stable button-positive">
-    Calculate
-  </button>
-  -->
-</div>
-<p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
+    <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
+    <!--
+    <button class="btn btn-outline-inverse btn-lg" onClick="clear()" id="clearButton">Clear</button>
+    -->
+  <!--
+     <div class="input-group col-md-1">
+        <input type="text" class="form-control">
+        <span class="input-group-addon">%</span>
+      </div>
+    <button class="button button-stable button-positive">
+      Calculate
+    </button>
+    -->
+  </div>
+  <p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
 </body>
+
 <footer>
         <h4>socoolproject</h4>
 </footer>
