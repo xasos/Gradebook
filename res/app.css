@@ -63,3 +63,12 @@ footer {
     font-weight: 300;
     color: #000000;
 }
+
+#finGr {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#semGr {
+    margin-right: 5px;
+}
