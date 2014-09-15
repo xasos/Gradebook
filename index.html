@@ -81,13 +81,7 @@
       function calcSemesterGrade() {
           $("clearButton").show();
           calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
-          if(calculatedGrade<0 || calculatedGrade > 100) {
-            alert("The situation is not possible. Please try again.")
-            reset();
-          } 
-          else {
-            $('#box4').val(calculatedGrade);
-          }
+          $('#box4').val(calculatedGrade);
       }
         
       function calcFinalGrade() {
@@ -130,9 +124,8 @@
       <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
     </div>
     <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
-    <!--
     <button class="btn btn-outline-inverse btn-lg" onClick="clear()" id="clearButton">Clear</button>
-    -->
+    
   <!--
      <div class="input-group col-md-1">
         <input type="text" class="form-control">
