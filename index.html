@@ -79,15 +79,28 @@
     }
       
       function calcSemesterGrade() {
-          calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
-          $('#box4').val(calculatedGrade);
           $("clearButton").show();
+          calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
+          if(calculatedGrade<0 || calculatedGrade > 100) {
+            alert("The situation is not possible. Please try again.")
+            reset();
+          } 
+          else {
+            $('#box4').val(calculatedGrade);
+          }
       }
         
       function calcFinalGrade() {
-          calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
-          $('#box3').val(calculatedGrade);
           $("clearButton").show();
+          calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
+          
+          if(calculatedGrade<0 || calculatedGrade > 100) {
+            alert("The situation is not possible. Please try again.")
+            reset();
+          } 
+          else {
+            $('#box3').val(calculatedGrade);
+          }
       }
       
       //reset all variables when user clears
