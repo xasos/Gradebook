@@ -21,7 +21,7 @@ function shakeEventDidOccur () {
         
       if($("#finGr").is(':checked')) {
             
-        if($('box1').val() !== null && $('box2').val() !== null && $('box4').val() !== null) {
+        if($('box1').val() !== null || $('box2').val() !== null || $('box4').val() !== null) {
               
         }
         
