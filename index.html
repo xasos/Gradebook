@@ -33,73 +33,6 @@
   <script src="res/app.js"></script>
 </head>
 <body>
-  <!-- move to app.js in production -->
-  <script>
-    var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
-    
-    // This will listen for a device shake and call the clear function
-    window.addEventListener('shake', shakeEventDidOccur, false);  
-    function shakeEventDidOccur () {
-      $('#box1').val("");
-      $('#box2').val("");
-      $('#box3').val("");
-      $('#box4').val("");
-      reset();
-    }
-    
-    //hide clear button until grade is calculated
-    $("#clearButton").hide();
-      
-    function calcGrade() {
-      grade1 = $('#box1').val();
-      grade2 = $('#box2').val();
-      finalGrade = $('#box3').val();
-      semesterGrade = $('#box4').val();
-        
-      if($("#finGr").is(':checked')) {
-            
-        if($('box1').val() !== null && $('box2').val() !== null && $('box4').val() !== null) {
-              
-        }
-          calcFinalGrade();
-          console.log("first");
-      }
-                  
-      else if($("#semGr").is(':checked')) {
-        if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
-              
-        }
-        calcSemesterGrade();
-        console.log("second");
-      }
-          
-      else {
-        alert("Please select the type of grade you want to check.");
-      }
-    }
-      
-      function calcSemesterGrade() {
-          calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
-          $('#box4').val(calculatedGrade);
-          $("clearButton").show();
-      }
-        
-      function calcFinalGrade() {
-          calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
-          $('#box3').val(calculatedGrade);
-          $("clearButton").show();
-      }
-      
-      //reset all variables when user clears
-      function reset() {
-        grade1 = 0;
-        grade2 = 0;
-        finalGrade = 0;
-        semesterGrade = 0;
-        calculatedGrade = 0;
-        $("clearButton").hide();
-      }
-  </script>
   <!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
   <h1><strong>Grade</strong>book</h1>
   <h2>An <i>easy</i> way to calculate your grades.</h2>
@@ -111,15 +44,14 @@
   
     <br>
     <div class="fields">
-      <input id="box1" type="text" placeholder="Q1 Grade"></input> +
-      <input id="box2" type="text" placeholder="Q2 Grade"></input> +
-      <input id="box3" type="text" placeholder="Final Grade"></input> =
+      <input id="box1" type="text" placeholder="Q1 Grade"></input> <p class="signs">+</p>
+      <input id="box2" type="text" placeholder="Q2 Grade"></input> <p class="signs">+</p>
+      <input id="box3" type="text" placeholder="Final Grade"></input> <p class="signs">=</p>
       <input id="box4" type="text" placeholder="Semester Grade"></input> <br><br>
     </div>
     <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
-    <!--
-    <button class="btn btn-outline-inverse btn-lg" onClick="clear()" id="clearButton">Clear</button>
-    -->
+    <button class="btn btn-outline-inverse btn-lg" onClick="reset()" id="clearButton">Clear</button>
+    
   <!--
      <div class="input-group col-md-1">
         <input type="text" class="form-control">
