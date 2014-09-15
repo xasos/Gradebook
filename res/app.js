@@ -3,11 +3,7 @@ var grade1, grade2, finalGrade, semesterGrade, calculatedGrade;
 // This will listen for a device shake and call the clear function
 window.addEventListener('shake', shakeEventDidOccur, false);  
 function shakeEventDidOccur () {
-     $('#box1').val("");
-     $('#box2').val("");
-     $('#box3').val("");
-     $('#box4').val("");
-     reset();
+    reset();
 }
     
     //hide clear button until grade is calculated
@@ -21,8 +17,8 @@ function shakeEventDidOccur () {
         
       if($("#finGr").is(':checked')) {
             
-        if($('box1').val() !== null && $('box2').val() !== null && $('box4').val() !== null) {
-              
+        if($('box1').val() = "" || $('box2').val() !== null || $('box4').val() !== null) {
+            console.log("yo");  
         }
         
         else {
@@ -71,9 +67,10 @@ function shakeEventDidOccur () {
         finalGrade = 0;
         semesterGrade = 0;
         calculatedGrade = 0;
-          $('#box1').val("");
-          $('#box2').val("");
-          $('#box3').val("");
-          $('#box4').val("");
-        $("clearButton").hide();
+        
+        $('#box1').val("");
+        $('#box2').val("");
+        $('#box3').val("");
+        $('#box4').val("");
+        $("#clearButton").hide();
       }
