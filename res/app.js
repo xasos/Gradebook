@@ -55,5 +55,4 @@ function reset() {
     $('#box2').val("");
     $('#box3').val("");
     $('#box4').val("");
-    $("#clearButton").hide();
 }
