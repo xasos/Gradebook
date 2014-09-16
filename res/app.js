@@ -16,24 +16,11 @@ function shakeEventDidOccur () {
       semesterGrade = $('#box4').val();
         
       if($("#finGr").is(':checked')) {
-            
-        if($('box1').val() = "" || $('box2').val() !== null || $('box4').val() !== null) {
-            console.log("yo");  
-        }
-        
-        else {
-            console.log("yo2");
-        }
-          calcFinalGrade();
-          console.log("first");
+        calcFinalGrade();
       }
                   
       else if($("#semGr").is(':checked')) {
-        if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
-              console.log("yo3");
-        }
         calcSemesterGrade();
-        console.log("second");
       }
           
       else {
