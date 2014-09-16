@@ -33,9 +33,10 @@
   <script src="res/app.js"></script>
 </head>
 <body>
-  <!-- To Do: Form validation, radio button -> disabling button, new radio buttons with bootstrap, show clear once calculated-->
   <h1><strong>Grade</strong>book</h1>
   <h2>An <i>easy</i> way to calculate your grades.</h2>
+  <br>
+  <br>
   <div class="gradeCalc">
     <form class="radioButtons">
       <input type="radio" name="grade" id="finGr">Find Final Grade</input>
@@ -51,21 +52,11 @@
     </div>
     <button class="btn btn-outline-inverse btn-lg" onClick="calcGrade()">Calculate</button>
     <button class="btn btn-outline-inverse btn-lg" onClick="reset()" id="clearButton">Clear</button>
-    
-  <!--
-     <div class="input-group col-md-1">
-        <input type="text" class="form-control">
-        <span class="input-group-addon">%</span>
-      </div>
-    <button class="button button-stable button-positive">
-      Calculate
-    </button>
-    -->
   </div>
   <p id="hint"><i>Hint: Shake your device to clear your grades!</i></p>
 </body>
 
 <footer>
-        <h4>socoolproject</h4>
+  <h4>socoolproject</h4>
 </footer>
 </html>
