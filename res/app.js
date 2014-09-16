@@ -5,7 +5,6 @@ window.addEventListener('shake', shakeEventDidOccur, false);
 function shakeEventDidOccur () {
     reset();
 }
-    
     //hide clear button until grade is calculated
     $("#clearButton").hide();
       
