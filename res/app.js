@@ -22,7 +22,7 @@ function shakeEventDidOccur () {
         }
         
         else {
-            console.log("yo");
+            console.log("yo2");
         }
           calcFinalGrade();
           console.log("first");
@@ -30,7 +30,7 @@ function shakeEventDidOccur () {
                   
       else if($("#semGr").is(':checked')) {
         if($('box1').val() !== null && $('box2').val() !== null && $('box3').val() !== null) {
-              console.log("yo");
+              console.log("yo3");
         }
         calcSemesterGrade();
         console.log("second");
@@ -52,7 +52,7 @@ function shakeEventDidOccur () {
           calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
           
           if(calculatedGrade<0 || calculatedGrade > 100) {
-            alert("The situation is not possible. Please try again.")
+            alert("The situation is not possible. Please try again.");
             reset();
           } 
           else {
@@ -60,17 +60,17 @@ function shakeEventDidOccur () {
           }
       }
       
-      //reset all variables when user clears
-      function reset() {
-        grade1 = 0;
-        grade2 = 0;
-        finalGrade = 0;
-        semesterGrade = 0;
-        calculatedGrade = 0;
-        
-        $('#box1').val("");
-        $('#box2').val("");
-        $('#box3').val("");
-        $('#box4').val("");
-        $("#clearButton").hide();
-      }
+//reset all variables when user clears
+function reset() {
+    grade1 = 0;
+    grade2 = 0;
+    finalGrade = 0;
+    semesterGrade = 0;
+    calculatedGrade = 0;
+   
+    $('#box1').val("");
+    $('#box2').val("");
+    $('#box3').val("");
+    $('#box4').val("");
+    $("#clearButton").hide();
+}
