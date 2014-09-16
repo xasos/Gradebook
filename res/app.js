@@ -5,9 +5,6 @@ window.addEventListener('shake', shakeEventDidOccur, false);
 function shakeEventDidOccur () {
     reset();
 }
-    //hide clear button until grade is calculated
-    $("#clearButton").hide();
-      
     function calcGrade() {
       grade1 = $('#box1').val();
       grade2 = $('#box2').val();
@@ -27,20 +24,20 @@ function shakeEventDidOccur () {
       }
     }
       
-      function calcSemesterGrade() {
+    function calcSemesterGrade() {
           $("clearButton").show();
           calculatedGrade = 0.4*(grade1) + 0.4*(grade2) + 0.2*(finalGrade);
           $('#box4').val(calculatedGrade);
-      }
+    }
         
-      function calcFinalGrade() {
-          $("clearButton").show();
-          calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
+    function calcFinalGrade() {
+        $("clearButton").show();
+        calculatedGrade = 5*(semesterGrade - 0.4*(grade1) - 0.4*(grade2));
           
-          if(calculatedGrade<0 || calculatedGrade > 100) {
+        if(calculatedGrade<0 || calculatedGrade > 100) {
             alert("The situation is not possible. Please try again.");
             reset();
-          } 
+        } 
           else {
             $('#box3').val(calculatedGrade);
           }
